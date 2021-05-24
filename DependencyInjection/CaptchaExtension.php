@@ -29,6 +29,7 @@ class CaptchaExtension extends Extension
         $container->setParameter('captcha.config.botdetect_captcha_path', $config['botdetect_captcha_path']);
         $container->setParameter('captcha.config.captchaConfig', $config['captchaConfig']);
         $container->setParameter('captcha.config.captchaStyleName', $config['captchaStyleName']);
+        $container->setParameter('captcha.config.captchaAlwaysValidAnswer', $config['captchaAlwaysValidAnswer']);
 
         // set captcha template
         $resources = $container->getParameter('twig.form.resources');
