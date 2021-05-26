@@ -23,6 +23,7 @@ class Configuration implements ConfigurationInterface
                 ->variableNode('botdetect_captcha_path')->defaultValue($captchaLibPathDefault)->end()
                 ->variableNode('captchaConfig')->defaultValue(null)->end()
                 ->variableNode('captchaStyleName')->defaultValue(null)->end()
+                ->variableNode('captchaAlwaysValidAnswer')->defaultValue(null)->end()
             ->end()
         ;
 

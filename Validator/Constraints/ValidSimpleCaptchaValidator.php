@@ -33,6 +33,10 @@ class ValidSimpleCaptchaValidator extends ConstraintValidator
         if (!$captcha instanceof BotDetectSimpleCaptchaHelper) {
             throw new UnexpectedTypeException($captcha, 'Captcha\Bundle\CaptchaBundle\Helpers\BotDetectSimpleCaptchaHelper');
         }
+        $alwaysValidAnswer = $this->container->getParameter('captcha.config.captchaAlwaysValidAnswer');
+        if ($alwaysValidAnswer && strtoupper($alwaysValidAnswer) === strtoupper($value)) {
+            return;
+        }
 
         if (!$captcha->Validate($value)) {
             $this->context->addViolation($constraint->message);
