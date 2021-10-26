@@ -75,7 +75,7 @@ function BDC_ApplyUserConfigOverride($CaptchaConfig, $CurrentCaptchaId) {
 
 
 // 4. determine is this file included in a form/class, or requested directly
-$BDC_RequestFilename = basename($_SERVER['REQUEST_URI']);
+$BDC_RequestFilename = basename(isset($_SERVER['REQUEST_URI']) ? $_SERVER['REQUEST_URI'] : '');
 if (BDC_StringHelper::StartsWith($BDC_RequestFilename, 'botdetect.php')) {
   // direct access, proceed as Captcha handler (serving images and sounds)
   require_once(BDC_INCLUDE_PATH . 'CaptchaHandler.php');
